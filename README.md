@@ -1,5 +1,7 @@
 # luenelock-api
 
+![](https://github.com/xenobyte/luenelock-api/actions/workflows/sast.yml/badge.svg)
+
 This is an open source project designed for university students who want to learn about DevSecOps topics. The project is written in Python and provides a REST API to simulate interaction with fictitious smart locks.
 
 Please note that this project is for educational purposes only and should not be used in production environments. The smart locks used in this project are purely fictional and should not be used for real-world security purposes.
