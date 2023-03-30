@@ -23,8 +23,8 @@ from rest_framework.authtoken import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/locks', views.LockList.as_view()),
-    path('api/locks/<uuid:uuid>', views.LockDetail.as_view()),
+    path('api/locks', views.LockList.as_view(), name='lock-list'),
+    path('api/locks/<uuid:uuid>', views.LockDetail.as_view(), name='lock-detail'),
     path('api-auth/', include('rest_framework.urls')),
     path('api-token-auth/', auth_views.obtain_auth_token),
     path('accounts/profile/', RedirectView.as_view(url='/api/locks')),
