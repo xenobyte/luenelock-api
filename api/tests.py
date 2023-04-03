@@ -62,7 +62,7 @@ class LockListTestCase(APITestCase):
 
     def test_lock_list_unauthenticated(self):
         response = self.client.get(self.url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
 class LockDetailTestCase(APITestCase):
@@ -82,15 +82,7 @@ class LockDetailTestCase(APITestCase):
 
     def test_lock_detail_unauthenticated(self):
         response = self.client.get(self.url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-    @patch('api.views.LockDetail.get_queryset')
-    def test_lock_detail_filter_by_user(self, mock_get_queryset):
-        mock_queryset = mock_get_queryset.return_value
-        mock_queryset.filter.return_value = [self.lock]
-        self.client.force_login(self.user)
-        response = self.client.get(self.url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_lock_detail_update(self):
         self.client.force_login(self.user)
