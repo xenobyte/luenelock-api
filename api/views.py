@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework import generics, permissions
 
 from .models import Lock
@@ -23,3 +24,7 @@ class LockDetail(generics.RetrieveUpdateDestroyAPIView):
         user = self.request.user
         lock = Lock.objects.get(uuid=self.kwargs['uuid'])
         return Lock.objects.filter(user=user, uuid=lock.uuid)
+
+
+def readme(request):
+    return render(request, 'readme.html')
