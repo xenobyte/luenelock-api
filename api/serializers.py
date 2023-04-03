@@ -6,4 +6,4 @@ from .models import Lock
 class LockSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lock
-        fields = ['uuid', 'name', 'is_locked']
+        fields = ['uuid', 'name', 'is_locked', 'user']
