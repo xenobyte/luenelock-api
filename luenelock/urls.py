@@ -21,6 +21,7 @@ from rest_framework.authtoken import views as auth_views
 from api import views
 
 urlpatterns = [
+    path('', views.readme, name='readme'),
     path('admin/', admin.site.urls),
     path('api/locks', views.LockList.as_view(), name='lock-list'),
     path('api/locks/<uuid:uuid>', views.LockDetail.as_view(), name='lock-detail'),
