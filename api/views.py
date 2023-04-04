@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render
 from rest_framework import generics, permissions
 
@@ -13,6 +14,9 @@ class LockList(generics.ListCreateAPIView):
     def get_queryset(self):
         user = self.request.user
         return Lock.objects.filter(user=user)
+
+    def perform_create(self, serializer):
+        return serializer.save(user=self.request.user)
 
 
 class LockDetail(generics.RetrieveUpdateDestroyAPIView):
