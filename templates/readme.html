@@ -4,14 +4,14 @@
     <article>
     <header>Receive Access Token</header>
     <p>Before you can interact with the API you need an access token. This access token should be send via HTTP Authorization Header for all following requests.</p>
-    <code>curl -X POST 'https://luenelock-api.herokuapp.com/api-token-auth/' -H 'Content-Type: application/json' -d '{"username": "YOUR_USERNAME", "password": "YOUR_USERNAME"}'</code>
+    <code>curl -X POST 'https://api.leuphana.xenolabs.net/api-token-auth/' -H 'Content-Type: application/json' -d '{"username": "YOUR_USERNAME", "password": "YOUR_USERNAME"}'</code>
     <footer>Response will be like: <code>{"token":"63fe5c4b22cfe4aabfc522a9e1fadb6c9aa978ae"}</code></footer>
     </article>
 
     <article>
     <header>Get A List With All Locks</header>
     <p>You can receive a list with all of your registered locks with the following request</p>
-    <code>curl -X GET 'https://luenelock-api.herokuapp.com/api/locks' -H 'Authorization: Token 63fe5c4b22cfe4aabfc522a9e1fadb6c9aa978ae'</code>
+    <code>curl -X GET 'https://api.leuphana.xenolabs.net/api/locks' -H 'Authorization: Token 63fe5c4b22cfe4aabfc522a9e1fadb6c9aa978ae'</code>
     <footer>Response is an array of locks like this:
         <code>
             [
@@ -34,7 +34,7 @@
     <article>
     <header>Open A Lock</header>
     <p>You can open a lock by providing the <code>uuid</code> of the lock and changing the <code>is_locked</code> state.</p>
-    <code>curl -X PATCH 'https://luenelock-api.herokuapp.com/api/locks/7c710d92-4bef-45bf-9231-af8582cdb98c' -H 'Content-Type: application/json' -H 'Authorization: Token 63fe5c4b22cfe4aabfc522a9e1fadb6c9aa978ae' -d '{"is_locked": false}’</code>
+    <code>curl -X PATCH 'https://api.leuphana.xenolabs.net/api/locks/7c710d92-4bef-45bf-9231-af8582cdb98c' -H 'Content-Type: application/json' -H 'Authorization: Token 63fe5c4b22cfe4aabfc522a9e1fadb6c9aa978ae' -d '{"is_locked": false}’</code>
     <footer>Response is the updated lock object:
         <code>
                 {
@@ -44,5 +44,9 @@
                 user: 2
                 }
         </code></footer>
+    </article>
+    <article>
+    <header>Playground</header>
+    <p>open <a href="/api/locks">this web interface</a> to play around with this api.</p>
     </article>
 {% endblock %}
